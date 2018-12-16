@@ -1,0 +1,93 @@
+/*
+ * === Lists ===
+ */
+
+/*
+ * Remove bullets from list container element and list elements
+ */
+@mixin no-bullets {
+    list-style: none;
+
+    li {
+        @include no-bullet();
+    }
+}
+
+/*
+ * Remove bullets from list elements
+ */
+@mixin no-bullet {
+    list-style-image: none;
+    list-style-type: none;
+}
+
+/*
+ * Style list container element
+ */
+@mixin inline-block-list-container {
+    @include horizontal-list-container();
+}
+
+/*
+ * Style list elements
+ */
+@mixin inline-block-list-item($padding: false) {
+    @include no-bullet();
+    @include inline-block();
+    white-space: nowrap;
+
+    @if $padding {
+        padding: $padding;
+    }
+}
+
+/*
+ * Shorthand for the above 2 mixins, useful if you aren't adding any other styles
+ */
+@mixin inline-block-list($padding: false) {
+    @include inline-block-list-container();
+
+    li {
+        @include inline-block-list-item($padding);
+    }
+}
+
+/*
+ * Style list container element
+ */
+@mixin horizontal-list-container {
+    @include reset-box-model();
+    @include clearfix();
+}
+
+/*
+ * Style list elements
+ */
+@mixin horizontal-list-item($padding: 4px, $direction: left) {
+    @include no-bullet();
+    white-space: nowrap;
+    float: $direction;
+
+    @if $padding {
+        padding: $padding;
+
+        &:first-child {
+            padding-#{$direction}: 0;
+        }
+
+        &:last-child {
+            padding-#{opposite-direction($direction)}: 0;
+        }
+    }
+}
+
+/*
+ * Shorthand for the above 2 mixins, useful if you aren't adding any other styles
+ */
+@mixin horizontal-list($padding: 4px, $direction: left) {
+    @include horizontal-list-container();
+
+    li {
+        @include horizontal-list-item($padding, $direction);
+    }
+}

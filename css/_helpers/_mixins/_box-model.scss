@@ -1,0 +1,59 @@
+/*
+ * === Box Model ===
+ */
+
+/*
+ * Modern clearfix
+ */
+@mixin clearfix {
+    overflow: hidden;
+}
+
+/*
+ * Older pie clearfix, useful when overflow needs to be visible
+ */
+@mixin pie-clearfix {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+/*
+ * Undo float styles, useful for responsive styles
+ */
+@mixin reset-float($margin: 0) {
+    float: none;
+    width: auto;
+    margin: $margin;
+}
+
+/*
+ * Eliminate unwated element styling
+ */
+@mixin reset-box-model {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*
+ * Vertical align an element
+ */
+@mixin vertical-align() {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*
+ * Ensures correct alignemnt for inline block elements
+ */
+@mixin inline-block($alignment: middle) {
+    display: inline-block;
+
+    @if $alignment and $alignment != none {
+        vertical-align: $alignment;
+    }
+}

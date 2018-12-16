@@ -1,0 +1,44 @@
+{
+    "name": "base-webpack",
+    "version": "1.0.0",
+    "description": "Default Webpack set-up",
+    "author": "William Walker <william@williamwalker.me> (http://williamwalker.me/)",
+    "homepage": "https://github.com/williamium/base-webpack",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/williamium/base-webpack.git"
+    },
+    "scripts": {
+        "build": "webpack --mode production --progress --hide-modules",
+        "dev": "webpack --mode development"
+    },
+    "browserslist": [
+        "last 2 versions",
+        "> 0.5% in GB",
+        "Firefox ESR",
+        "not dead",
+        "not IE 11",
+        "not IE_Mob 11"
+    ],
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/preset-env": "^7.2.0",
+        "autoprefixer": "^9.4.2",
+        "babel-loader": "^8.0.4",
+        "browserslist": "^4.3.6",
+        "clean-webpack-plugin": "^1.0.0",
+        "css-loader": "^2.0.1",
+        "cssnano": "^4.1.7",
+        "html-webpack-plugin": "^3.2.0",
+        "mini-css-extract-plugin": "^0.5.0",
+        "node-sass": "^4.11.0",
+        "postcss-import": "^12.0.1",
+        "postcss-loader": "^3.0.0",
+        "sass-loader": "^7.1.0",
+        "webpack": "^4.27.1",
+        "webpack-cli": "^3.1.2"
+    },
+    "dependencies": {
+        "normalize.css": "^8.0.1"
+    }
+}
